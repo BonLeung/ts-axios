@@ -34,6 +34,8 @@ registExtendRouter()
 
 registInterceptorRouter()
 
+registConfigRouter()
+
 app.use(router)
 
 function registBaseRouter() {
@@ -133,6 +135,12 @@ function registExtendRouter() {
 function registInterceptorRouter() {
   router.get('/interceptor/get', function(req, res) {
     res.end('hello')
+  })
+}
+
+function registConfigRouter() {
+  router.post('/config/post', function(req, res) {
+    res.json(req.body)
   })
 }
 
