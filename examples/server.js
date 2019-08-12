@@ -36,6 +36,8 @@ registInterceptorRouter()
 
 registConfigRouter()
 
+registCancelRouter()
+
 app.use(router)
 
 function registBaseRouter() {
@@ -141,6 +143,20 @@ function registInterceptorRouter() {
 function registConfigRouter() {
   router.post('/config/post', function(req, res) {
     res.json(req.body)
+  })
+}
+
+function registCancelRouter() {
+  router.get('/cancel/get', function(req, res) {
+    setTimeout(() => {
+      res.json('hello')
+    }, 1000)
+  })
+
+  router.post('/cancel/post', function(req, res) {
+    setTimeout(() => {
+      res.json(req.body)
+    })
   })
 }
 
